@@ -67,6 +67,9 @@
                     @endforeach
                     </tbody>
                 </table>
+                <div class="mt-5">
+                    {{ $guests->links() }}
+                </div>
             </div>
         </div>
     </div>
