@@ -79,7 +79,7 @@ class GuestController extends Controller
 
     public function scan(Guest $guest)
     {
-        if (!auth()->check()) {
+        if (!auth()->user()) {
             return redirect()->to('https://instagram.com/what.happened.yesterday_?igshid=YmMyMTA2M2Y=');
         }
 
