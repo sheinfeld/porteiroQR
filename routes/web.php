@@ -31,7 +31,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::put('update', [GuestController::class, 'update'])->name('update');
         Route::delete('destroy/{guest}', [GuestController::class, 'destroy'])->name('destroy');
         Route::get('show/{guest}', [GuestController::class, 'show'])->name('show');
-        Route::get('scan/{guest}', [GuestController::class, 'scanGuest'])->name('scan');
+        Route::get('scan/{guest}', [GuestController::class, 'scan'])->name('scan');
     });
 });
 

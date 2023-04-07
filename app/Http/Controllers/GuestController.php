@@ -70,7 +70,7 @@ class GuestController extends Controller
     public function scan(Guest $guest)
     {
         if (!auth()->check()) {
-            abort(404, 'Oops, it seems like you are not allowed to do this');
+            return redirect()->to('https://instagram.com/what.happened.yesterday_?igshid=YmMyMTA2M2Y=');
         }
 
         try {
