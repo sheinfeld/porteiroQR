@@ -24,14 +24,18 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', [GuestController::class, 'index'])->name('guests.index');
+
     Route::group(['prefix' => 'guests', 'as' => 'guests.'], function () {
-        Route::get('create', [GuestController::class, 'create'])->name('create');
-        Route::post('store', [GuestController::class, 'store'])->name('store');
-        Route::get('edit', [GuestController::class, 'edit'])->name('edit');
-        Route::put('update', [GuestController::class, 'update'])->name('update');
-        Route::delete('destroy/{guest}', [GuestController::class, 'destroy'])->name('destroy');
+        Route::middleware(['isAdmin'])->group(function () {
+            Route::get('create', [GuestController::class, 'create'])->name('create');
+            Route::post('store', [GuestController::class, 'store'])->name('store');
+            Route::get('edit', [GuestController::class, 'edit'])->name('edit');
+            Route::put('update', [GuestController::class, 'update'])->name('update');
+            Route::delete('destroy/{guest}', [GuestController::class, 'destroy'])->name('destroy');
+            Route::post('reset/{guest}', [GuestController::class, 'reset'])->name('reset');
+        });
+
         Route::get('show/{guest}', [GuestController::class, 'show'])->name('show');
-        Route::post('reset/{guest}', [GuestController::class, 'reset'])->name('reset');
     });
 });
 
