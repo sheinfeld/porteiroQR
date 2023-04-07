@@ -23,8 +23,8 @@ Route::get('/', function () {
 })->name('dashboard');
 
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('dashboard', [GuestController::class, 'index'])->name('guests.index');
     Route::group(['prefix' => 'guests', 'as' => 'guests.'], function () {
-        Route::get('/', [GuestController::class, 'index'])->name('index');
         Route::get('create', [GuestController::class, 'create'])->name('create');
         Route::post('store', [GuestController::class, 'store'])->name('store');
         Route::get('edit', [GuestController::class, 'edit'])->name('edit');

@@ -18,9 +18,13 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <span class="centered">
-                {!! QrCode::size(300)->generate(route('guests.scan', $guest)) !!}
-                </span>
+                <br><br>
+                <img src="{{ asset('assets/img/header.jpg') }}" alt="Logo" class="w-full mb-6">
+                <h1 class="text-2xl font-bold mb-4 text-center">{{ __('QR Guest') }} - {{ $guest->name }}</h1>
+                <div class="centered">
+                    {!! QrCode::size(300)->generate(route('guests.scan', $guest)) !!}
+                </div>
+                <br><br>
             </div>
         </div>
     </div>
