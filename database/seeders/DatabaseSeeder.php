@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
            'email' => 'polina.tafintsova@gmail.com',
            'password' => bcrypt('Ranetki98'),
            'email_verified_at' => now(),
+           'role' => 'admin'
         ]);
 
         User::create([
@@ -31,6 +32,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'webmaster@ceuton.net',
             'password' => bcrypt('drake2011'),
             'email_verified_at' => now(),
+            'role' => 'admin'
         ]);
     }
 }
