@@ -16,7 +16,6 @@ class GuestController extends Controller
         ]);
     }
 
-
     public function create()
     {
         return view('guests.create', [
@@ -56,6 +55,17 @@ class GuestController extends Controller
     public function destroy(Guest $guest)
     {
         $guest->delete();
+
+        return redirect()->route('guests.index');
+    }
+
+    public function reset(Guest $guest)
+    {
+        $guest->update([
+            'arrived_at' => null,
+        ]);
+
+        toastr()->warning('Guest arrival reset');
 
         return redirect()->route('guests.index');
     }

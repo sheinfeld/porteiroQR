@@ -44,19 +44,24 @@
                                 @endif
                             </td>
                             <td class="border px-4 py-2">
-                                <div class="dropdown">
-                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-2 rounded">
-                                        <i class="fa-solid fa-ellipsis-h"></i>
-                                    </button>
-                                    <div class="dropdown-menu absolute hidden text-gray-700 pt-1">
-                                        <a href="{{ route('guests.edit', $guest->id) }}" class="rounded-t bg-blue-200 hover:bg-blue-400 py-2 px-4 block whitespace-no-wrap">Edit</a>
-                                        <form action="{{ route('guests.destroy', $guest->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="rounded-b bg-red-200 hover:bg-red-400 py-2 px-4 block whitespace-no-wrap" onclick="return confirm('Are you sure you want to delete this guest?')">Delete</button>
-                                        </form>
-                                    </div>
-                                </div>
+                                <span class="inline-flex">
+                                    <a href="{{ route('guests.edit', $guest->id) }}" class="rounded bg-blue-200 hover:bg-blue-400 py-2 px-4 mr-2">
+                                        <i class="fa-solid fa-edit"></i>
+                                    </a>
+                                    <form action="{{ route('guests.destroy', $guest->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="rounded bg-red-200 hover:bg-red-400 py-2 px-4 mr-2" onclick="return confirm('Are you sure you want to delete this guest?')">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </form>
+                                    <form action="{{ route('guests.reset', $guest->id) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="rounded bg-gray-200 hover:bg-gray-500 py-2 px-4" onclick="return confirm('Are you sure you want to reset the arrival of this guest?')">
+                                            <i class="fa-solid fa-undo"></i>
+                                        </button>
+                                    </form>
+                                </span>
                             </td>
                         </tr>
                     @endforeach
