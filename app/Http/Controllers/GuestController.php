@@ -85,7 +85,7 @@ class GuestController extends Controller
 
         try {
             if ($guest->arrived_at) {
-                toastr()->warning('Guest already scanned in');
+                toastr()->error('Guest already scanned in');
                 return redirect()->route('guests.index');
             }
 
