@@ -38,9 +38,9 @@
                             </td>
                             <td class="border px-4 py-2">
                                 @if ($guest->arrived_at)
-                                    <small class="bg-green-500 text-white px-2 py-2 rounded-full">Arrived</small>
+                                    <small class="bg-green-500 text-white px-2 py-2 rounded"><i class="fa-solid fa-check"></i></small>
                                 @else
-                                    <small class="bg-red-500 text-white px-2 py-2 rounded-full">Not arrived</small>
+                                    <small class="bg-red-500 text-white px-2 py-2 rounded"><i class="fa-solid fa-clock"></i></small>
                                 @endif
                             </td>
                             <td class="border px-4 py-2">
